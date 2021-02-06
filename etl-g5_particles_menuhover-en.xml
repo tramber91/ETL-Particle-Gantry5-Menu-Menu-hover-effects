@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="file" method="upgrade" version="1.0">
+    <name>ETL particle Menu Hover effects (EN)</name>
+    <version>1.0</version>
+    <creationDate>01.05.2020</creationDate>
+    <author>Bertrand Pascal - En Toutes Lettres</author>
+    <authorEmail>webmaster@en-toutes-lettres.fr</authorEmail>
+    <authorUrl>http://www.en-toutes-lettres.fr</authorUrl>
+    <copyright>(C) 2017 En Toutes Lettres</copyright>
+    <license>MIT - see LICENSE.pdf</license>
+    <packager>En Toutes Lettres</packager>
+    <packagerurl>https://www.en-toutes-lettres.fr</packagerurl>
+    <description>
+        <![CDATA[<h3>Particle "Menu - Menu Hover effects" for Gantry 5 v1.0 - Template Hydrogen (English version)</h3>
+		<h4>Following article by Mary-Lou in Codrops on August 1, 2017</h4> 
+		<h4>Adaptation for Hydrogen by En Toutes Lettres (https://www.en-toutes-lettres.fr)</h4>
+		<h4>Don't forget to add this line</h4>
+        <h3><span style="color:#0000FF">@import 'etl_menuhovereffect'; </span></h3>
+        <h4>in your custom CSS file, custom.scss (/templates/g5_hydrogen/custom/scss/custom.scss)</h4>
+        <h4>or create this file and add this line with your text editor (/templates/g5_hydrogen/custom/scss/custom.scss)</h4>]]>
+    </description>
+    <fileset>
+        <files folder="particles" target="templates/g5_hydrogen/custom/particles"><filename>etl_menuhovereffect.html.twig</filename><filename>etl_menuhovereffect.yaml</filename></files>
+		<files folder="js" target="templates/g5_hydrogen/custom/js"><filename>anime.min.js</filename><filename>charming.min.js</filename><filename>demo-ama.js</filename><filename>demo-mohe.js</filename><filename>demo-salal.js</filename><filename>demo-tsula.js</filename><filename>demo-yona.js</filename></files>
+		<files folder="scss" target="templates/g5_hydrogen/custom/scss"><filename>etl_menuhovereffect.scss</filename></files>
+     </fileset>
+</extension>

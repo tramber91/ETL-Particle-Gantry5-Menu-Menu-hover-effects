@@ -1,0 +1,161 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+	<div class="etl-menuhover-particle-header">
+            {% if particle.title %}<h2 class="g-title">{{ particle.title|raw }}</h2>{% endif %}
+    </div>
+<div class="etl-menuhover-particle {{ particle.class|e }}">
+
+  {% for menu in particle.menus %}
+
+    {% if particle.conf_presets == "simplemenu" %}
+    <div class="g-block etl-menuhover-container">
+        {% if menu.titlemenu %}<h6>{{ menu.titlemenu }}</h6>{% endif %}
+        <ul class="etl-menuhover">
+            {% for item in menu.items %}
+            <li>
+                {% if item.icon %}
+                <i class="{{ item.icon }}"></i>
+                {% endif %}
+                <a target="{{ item.target|default('_blank') }}" href="{{ item.link|e }}" title="{{ item.title }}">{{ item.title|raw }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+	{% endif %}
+
+    {% if particle.conf_presets == "dustu" %}
+    <div class="g-block etl-menuhover-container">
+        {% if menu.titlemenu %}<h6>{{ menu.titlemenu }}</h6>{% endif %}
+        <div class="content_dustu">
+			<nav class="menu menu--dustu">
+            {% for item in menu.items %}
+                <a class="menu__item" target="{{ item.target|default('_blank') }}" href="{{ item.link|e }}" title="{{ item.title }}">
+					<span class="menu__item-name">{{ item.title|raw }}</span><span class="menu__item-label">{{ item.subtitle|raw }}</span>
+				</a>
+            {% endfor %}
+			</nav>
+    	</div>
+    </div>
+	{% endif %}
+	
+    {% if particle.conf_presets == "inola" %}
+    <div class="g-block etl-menuhover-container">
+        {% if menu.titlemenu %}<h6>{{ menu.titlemenu }}</h6>{% endif %}
+        <div class="content">
+			<nav class="menu menu--inola">
+            {% for item in menu.items %}
+                <a class="menu__item" target="{{ item.target|default('_blank') }}" href="{{ item.link|e }}" title="{{ item.title }}">
+					<span class="menu__item-name">{{ item.title|raw }}</span><span class="menu__item-label">{{ item.subtitle|raw }}</span>
+				</a>
+            {% endfor %}
+			</nav>
+    	</div>
+    </div>
+	{% endif %}
+	
+
+    {% if particle.conf_presets == "adsila" %}
+    <div class="g-block etl-menuhover-container">
+        {% if menu.titlemenu %}<h6>{{ menu.titlemenu }}</h6>{% endif %}
+        <div class="content">
+			<nav class="menu menu--adsila">
+            {% for item in menu.items %}
+                <a class="menu__item" target="{{ item.target|default('_blank') }}" href="{{ item.link|e }}" title="{{ item.title }}">
+					<span class="menu__item-name">{{ item.title|raw }}</span><span class="menu__item-label">{{ item.subtitle|raw }}</span>
+				</a>
+            {% endfor %}
+			</nav>
+    	</div>
+    </div>
+	{% endif %}
+		
+    {% if particle.conf_presets == "ama" %}
+    <div class="g-block etl-menuhover-container">
+       {% if menu.titlemenu %}<h6>{{ menu.titlemenu }}</h6>{% endif %}
+        <nav class="menu menu--ama">
+            {% for item in menu.items %}
+                <a class="menu__item" target="{{ item.target|default('_blank') }}" href="{{ item.link|e }}" title="{{ item.title }}">
+					<span class="menu__item-name">{{ item.title|raw }}</span>
+					<span class="menu__item-labelama">{{ item.subtitle|raw }}</span>
+				</a>
+            {% endfor %}
+		</nav>
+     </div>
+	{% endif %}
+	
+    {% if particle.conf_presets == "salal" %}
+    <div class="g-block etl-menuhover-container">
+       {% if menu.titlemenu %}<h6>{{ menu.titlemenu }}</h6>{% endif %}
+        <nav class="menu menu--salal">
+            {% for item in menu.items %}
+                <a class="menu__item" target="{{ item.target|default('_blank') }}" href="{{ item.link|e }}" title="{{ item.title }}">
+					<span class="menu__item-name">{{ item.title|raw }}</span>
+					<span class="menu__item-label">{{ item.subtitle|raw }}</span>
+				</a>
+            {% endfor %}
+		</nav>
+     </div>
+	{% endif %}
+
+	
+    {% if particle.conf_presets == "yona" %}
+    <div class="g-block etl-menuhover-container">
+        {% if menu.titlemenu %}<h6>{{ menu.titlemenu }}</h6>{% endif %}
+        <div class="content">
+			<nav class="menu menu--yona">
+            {% for item in menu.items %}
+                <a class="menu__item" target="{{ item.target|default('_blank') }}" href="{{ item.link|e }}" title="{{ item.title }}">
+					<span class="menu__item-name">{{ item.title|raw }}</span><span class="menu__item-label">{{ item.subtitle|raw }}</span>
+				</a>
+            {% endfor %}
+			</nav>
+    	</div>
+    </div>
+	{% endif %}
+	
+    {% if particle.conf_presets == "mohe" %}
+    <div class="g-block etl-menuhover-container">
+        {% if menu.titlemenu %}<h6>{{ menu.titlemenu }}</h6>{% endif %}
+        <div class="content">
+			<nav class="menu menu--mohe">
+            {% for item in menu.items %}
+                <a class="menu__item" target="{{ item.target|default('_blank') }}" href="{{ item.link|e }}" title="{{ item.title }}">
+					<span class="menu__item-name">{{ item.title|raw }}</span><span class="menu__item-label">{{ item.subtitle|raw }}</span>
+				</a>
+            {% endfor %}
+			</nav>
+    	</div>
+    </div>
+	{% endif %}
+
+    {% if particle.conf_presets == "tsula" %}
+    <div class="g-block etl-menuhover-container">
+        {% if menu.titlemenu %}<h6>{{ menu.titlemenu }}</h6>{% endif %}
+        <div class="content">
+			<nav class="menu menu--tsula">
+            {% for item in menu.items %}
+                <a class="menu__item" target="{{ item.target|default('_blank') }}" href="{{ item.link|e }}" title="{{ item.title }}">
+					<span class="menu__item-name">{{ item.title|raw }}</span><span class="menu__item-label">{{ item.subtitle|raw }}</span>
+				</a>
+            {% endfor %}
+			</nav>
+    	</div>
+    </div>
+	{% endif %}
+	
+  {% endfor %}
+</div>
+
+{% endblock %}
+		
+{% block javascript_footer %}
+	{% if particle.conf_presets == "ama" or particle.conf_presets == "salal" or particle.conf_presets == "yona" or particle.conf_presets == "tsula" or particle.conf_presets == "mohe" %}<script src="{{ url('gantry-theme://js/charming.min.js') }}"></script>{% endif %}
+	{% if particle.conf_presets == "ama" or particle.conf_presets == "salal" or particle.conf_presets == "yona" or particle.conf_presets == "tsula" or particle.conf_presets == "mohe" %}<script src="{{ url('gantry-theme://js/anime.min.js') }}"></script>{% endif %}
+	{% if particle.conf_presets == "ama" %}<script src="{{ url('gantry-theme://js/demo-ama.js') }}"></script>{% endif %}
+	{% if particle.conf_presets == "salal" %}<script src="{{ url('gantry-theme://js/demo-salal.js') }}"></script>{% endif %}
+	{% if particle.conf_presets == "mohe" %}<script src="{{ url('gantry-theme://js/demo-mohe.js') }}"></script>{% endif %}
+	{% if particle.conf_presets == "tsula" %}<script src="{{ url('gantry-theme://js/demo-tsula.js') }}"></script>{% endif %}
+	{% if particle.conf_presets == "yona" %}<script src="{{ url('gantry-theme://js/demo-yona.js') }}"></script>{% endif %}
+{% endblock %}
+

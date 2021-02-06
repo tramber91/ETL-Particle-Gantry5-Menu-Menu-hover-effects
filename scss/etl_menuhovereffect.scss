@@ -1,0 +1,713 @@
+.etl-menuhover-particle {
+    @include display(flex);
+    @include justify-content(space-around);
+
+    @include breakpoint(desktop-range) {
+        padding: 0 ($content-padding * 2);
+    }
+
+    @include breakpoint(mobile-only) {
+        @include flex-direction(column);
+        @include justify-content(space-between);
+    }
+
+    .etl-menuhover-container {
+        @include breakpoint(mobile-only) {
+            text-align: center;
+        }
+        h6 {
+            margin: 0 0 ($content-margin + $content-padding);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: $font-weight-medium;
+            color: darken($base-text-color, 20%);
+            @include responsive-font($responsive-font-size, $core-font-size, false, false);
+        }
+        .etl-menuhover {
+            list-style: none;
+            margin: 0;
+            @include responsive-font($responsive-font-size + 0.1, $core-font-size, false, false);
+
+            @include breakpoint(mobile-only) {
+                margin: 0 0 ($content-margin * 2);
+            }
+
+            li {
+                padding: $content-margin - 0.45 0;
+
+                a {
+                    color: transparentize($base-text-color, 25%);
+
+                    &:hover {
+                        //box-shadow: 0 2px 0 $base-text-color;
+                        color: transparentize($base-text-color, 5%);
+                    }
+                }
+            }
+        }
+    }
+
+
+/* Common styles for the menus hover effect */
+	.menu {
+		position: relative;
+		z-index: 10;
+	}
+
+	.menu__item {
+		line-height: 1;
+		position: relative;
+		display: block;
+		margin: 1em 0;
+		outline: none;
+	}
+
+	.menu__item-name, .menu__item-label {
+		position: relative;
+		display: inline-block;
+	}
+
+	.menu__item-name {
+		font-size: 1.25em;
+	}
+
+	.menu__item-label {
+		margin: 0 0 0 0.5em;
+	}
+		.menu__item-labelama {
+		margin: 0;
+	}
+
+
+//MENU ADSILA -----------------------------------------------------------------------------------------------------------------------
+	
+	.menu--adsila {
+		//Define your colors
+		$color-menuname: #57585c;
+		$color-adsila-1: #fe628e;
+		$color-adsila-2: #6265fe;
+		
+		font-size: 1.15em;
+
+		a {
+			color: $color-menuname;
+		}
+
+		.menu__item-name {
+			font-weight: bold;
+			line-height: 1.4;
+			padding: 0 0.35em;
+			transition: color 0.5s;
+			transition-timing-function: cubic-bezier(0.2,1,0.3,1);
+		}
+
+		.menu__item-name::before {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 50%;
+			opacity: 0.3;
+			transform: scale3d(0,1,1);
+			transform-origin: 0% 50%;
+			transition: transform 0.5s;
+			transition-timing-function: cubic-bezier(0.2,1,0.3,1);
+		}
+
+		.menu__item-label {
+			font-size: 1em;
+			letter-spacing: 0.05em;
+			transform: translate3d(-0.5em,0,0);
+			transition: transform 0.5s, color 0.5s;
+			transition-timing-function: cubic-bezier(0.2,1,0.3,1);
+		}
+
+		.menu__item-label::before {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			top: 1.25em;
+			left: 0.05em;
+			width: 25%;
+			height: 1px;
+			opacity: 0.3;
+			transform: scale3d(0,1,1);
+			transform-origin: 100% 50%;
+			transition: transform 0.5s;
+			transition-timing-function: cubic-bezier(0.2,1,0.3,1);
+		}
+
+		.menu__item:nth-child(odd) .menu__item-name::before,
+		.menu__item:nth-child(odd) .menu__item-label::before {
+			background: $color-adsila-1;
+		}
+
+		.menu__item:nth-child(even) .menu__item-name::before,
+		.menu__item:nth-child(even) .menu__item-label::before {
+			background: $color-adsila-2;
+		}
+
+		/* Hover */
+
+		.menu__item:nth-child(odd):hover,
+		.menu__item:nth-child(odd):focus {
+			color: $color-adsila-1;
+		}
+
+		.menu__item:nth-child(even):hover,
+		.menu__item:nth-child(even):focus {
+			color: $color-adsila-2;
+		}
+
+		.menu__item:hover .menu__item-name::before,
+		.menu__item:focus .menu__item-name::before,
+		.menu__item:hover .menu__item-label::before,
+		.menu__item:focus .menu__item-label::before {
+			transform: scale3d(1,1,1);
+		}
+
+		.menu__item:hover .menu__item-label,
+		.menu__item:focus .menu__item-label {
+			transform: translate3d(0,0,0);
+		}
+
+		.menu__item:hover .menu__item-label::before,
+		.menu__item:focus .menu__item-label::before {
+			transform-origin: 0% 50%;
+			transition-timing-function: ease;
+		}
+
+		@media screen and (max-width: 50em) {
+			.menu__item {
+				margin: 0 0 2em;
+			}
+			.menu__item-label {
+				display: block;
+				margin: 0.5em 0 0 1em;
+			}
+		}
+
+	}
+// END Menu adsila
+	
+//MENU AMA -----------------------------------------------------------------------------------------------------------------------
+	
+	.menu--ama {
+	//Define your colors	
+	$color-menuname: $base-text-color;
+		
+		counter-reset: itemCounter;
+
+		.menu__item {
+			font-size: 1.25em;
+			font-weight: 500;
+			margin: 3em 0;
+			padding-left: 0.5em;
+			color: $color-menuname;
+		}
+		
+		//Define below all Menu item backgroud colors
+		
+		.menu__item:first-child {--menu-item-color:#9437ff;}
+		.menu__item:nth-child(2) {--menu-item-color:#ff84fd;}
+		.menu__item:nth-child(3) {--menu-item-color:#6cccff;}
+		.menu__item:nth-child(4) {--menu-item-color:#3dd2c1;}
+		.menu__item:nth-child(5) {--menu-item-color:#9437ff;}
+		.menu__item:nth-child(6) {--menu-item-color:#ff84fd;}
+		.menu__item:nth-child(7) {--menu-item-color:#6cccff;}
+		.menu__item:nth-child(8) {--menu-item-color:#3dd2c1;}
+
+		.menu__item::before {
+			content: counter(itemCounter,decimal-leading-zero);
+			font-size: 0.85em;
+			font-weight: bold;
+			position: absolute;
+			right: 100%;
+			bottom: calc(100% - 0.35em);
+			counter-increment: itemCounter;
+			color: #ddd;
+			
+		}
+
+		.menu__item:hover::before,
+		.menu__item:focus::before {
+			color: var(--menu-item-color);
+		}
+
+		.menu__item-name {
+			font-size: 1.5em;
+			font-weight: 500;
+			display: flex;
+			flex-wrap: wrap;
+			padding: 0.5em 0 0 0;
+			white-space: pre;
+			//text-transform: lowercase;
+		}
+
+		.menu__item-name::before,
+		.menu__item-name::after {
+			content: '';
+			position: absolute;
+			bottom: 100%;
+			left: 0;
+			width: 2.5em;
+			height: 4px;
+			background: #ddd;
+		}
+
+		.menu__item-name::after {
+			background: var(--menu-item-color);
+			transform: scale3d(0,1,1);
+			transform-origin: 0% 50%;
+			transition: transform 0.5s;
+		}
+
+		.menu__item:hover .menu__item-name::after,
+		.menu__item:focus .menu__item-name::after {
+			transform: scale3d(1,1,1);
+		}
+
+		.menu__item-name span {
+			display: inline-block;
+		}
+	}
+// END Menu AMA
+	
+//MENU DUTSU -----------------------------------------------------------------------------------------------------------------------
+	
+	.content_dustu {
+	 	//position: absolute;
+		display: flex;
+		justify-content: left;
+		align-items: left;
+		//min-height: 100vh;
+		margin: 0 auto;
+		//padding: 3em 2em;
+		}
+	.menu--dustu {
+		
+	//Define your colors	
+	$color-menuname: #fff;
+	$color-background: #eb2141;
+	$color-submenuname: #565656;
+	$link-hover:$color-menuname;
+		
+		.menu__item {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			margin: 2em 0;
+		}
+
+		.menu__item-name {
+			font-size: $core-font-size +0.6;
+			font-weight: bold;
+			overflow: hidden;
+			padding: 0 0.25em;
+			text-transform: uppercase;
+			color: $color-menuname;
+		}
+
+		.menu__item-name::before,
+		.menu__item-name::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: $color-background;
+			transform: translate3d(-100%,0,0) translate3d(-1px,0,0);
+			transition: transform 0.7s;
+			transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+		}
+
+		.menu__item:hover .menu__item-name::before {
+			transform: translate3d(100%,0,0) translate3d(1px,0,0);
+		}
+
+		.menu__item:hover .menu__item-name::after {
+			transform: translate3d(0,0,0);
+		}
+
+		.menu__item-name::after {
+			top: calc(50% - 2px);
+			height: 4px;
+		}
+
+		.menu__item-label {
+			font-size: 1em;
+			margin: 0.5em 0 0 0;
+			margin-top: 0.25em;
+			padding: 0.5em;
+			color: $color-submenuname;
+			transition: color 0.7s;
+			transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+		}
+
+		.menu__item:hover .menu__item-label {
+			color: $link-hover;
+		}
+	}
+// END Menu DUTSU
+	
+//MENU INOLA -----------------------------------------------------------------------------------------------------------------------
+	
+	.menu--inola {
+	//define colors - to be invisible out of hover, color background must be same as your module backgound
+	$color-menuname: #fff;
+	$color-background: #1f1e1e;
+	$color-link: #e5d338;
+		
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+		
+		.menu__item {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin: 1.25em 0;
+			text-align: center;
+		}
+
+		.menu__item:last-child {
+			margin-bottom: 0;
+		}
+
+		.menu__item-name {
+			font-size: 2.25em;
+			padding: 0 0.25em;
+			color: $color-menuname;
+		}
+
+		.menu__item-name::before {
+			content: '';
+			position: absolute;
+			top: calc(50% - 2px);
+			left: 0;
+			width: 100%;
+			height: 4px;
+			pointer-events: none;
+			background: currentColor;
+			transform: scale3d(0,1,1);
+			transform-origin: 100% 50%;
+			transition: transform 0.5s;
+			transition-timing-function: cubic-bezier(0.8,0,0.2,1);
+		}
+
+		.menu__item:hover .menu__item-name::before,
+		.menu__item:focus .menu__item-name::before {
+			transform: scale3d(1,1,1);
+			transform-origin: 0% 50%;
+		}
+
+		.menu__item-label {
+			font-size: 0.85em;
+			margin-top: 0.5em;
+			letter-spacing: 0.2em;
+			text-transform: uppercase;
+			color: $color-link;
+		}
+
+		.menu__item-label::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: $color-background;
+			transform-origin: 100% 50%;
+			transition: transform 0.5s;
+			transition-timing-function: cubic-bezier(0.8,0,0.2,1);
+		}
+
+		.menu__item:hover .menu__item-label::after,
+		.menu__item:focus .menu__item-label::after {
+			transform: scale3d(0,1,1);
+			transform-origin: 0% 50%;
+		}
+	}
+// END Menu INOLA
+	
+//MENU MOHE -----------------------------------------------------------------------------------------------------------------------
+	
+	.menu--mohe {
+		//Define your colors
+		$color-menuname: #171754;
+		$color-submenuname: #fff;
+		$color-submenunamebg:$color-submenuname;
+
+		.menu__item {
+			font-family: $font-family-serif;
+			font-weight: 700;
+			display: grid;
+			justify-content: center;
+			margin: 4em 0;
+			text-transform: lowercase;
+			grid-template-columns: auto;
+		}
+
+		.menu__item-name {
+			font-size: 1.8em;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			white-space: pre;
+			pointer-events: none;
+			color: $color-menuname;
+			grid-area: 1 / 1 / 2 / 2;
+		}
+
+		.menu__item-name span {
+			display: inline-block;
+		}
+
+		.menu__item-label {
+			font-size: 1.25em;
+			line-height: 1.4;
+			overflow: hidden;
+			margin: 0;
+			text-align: center;
+			color: transparent;
+			transition: color 0s 0.3s;
+			grid-area: 1 / 1 / 2 / 2;
+		}
+
+		.menu__item:hover .menu__item-label,
+		.menu__item:focus .menu__item-label {
+			color: $color-submenuname;
+		}
+
+		.menu__item-label::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: $color-submenunamebg;
+			transform: translate3d(-100%,0,0) translate3d(-1px,0,0);
+			transition: transform 0.6s;
+			transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+		}
+
+		.menu__item:hover .menu__item-label::before,
+		.menu__item:focus .menu__item-label::before {
+			transform: translate3d(100%,0,0) translate3d(1px,0,0);
+		}
+
+		@media screen and (max-width: 50em) {
+			.menu__item-label {
+				font-size: 0.85em;
+			}
+		}
+	}
+// END Menu MOHE
+	
+//MENU SALAL -----------------------------------------------------------------------------------------------------------------------
+	
+	.menu--salal {
+	//Define your colors
+	$color-menuname: #fff;
+	$color-submenuname: #515152;
+	$color-hover:$color-menuname;
+		
+		.menu__item {
+			font-size: 1.25em;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-end;
+			margin: 2em 0;
+			color: $color-menuname;
+		}
+
+		.menu__item:hover {
+			color: $color-hover;
+		}
+
+		//Define here your specific menu colors
+		.menu__item:first-child {--menu-item-color:#f85f83;}
+		.menu__item:nth-child(2) {--menu-item-color:#f7bd1f;}
+		.menu__item:nth-child(3) {--menu-item-color:#24d261;}
+		.menu__item:nth-child(4) {--menu-item-color:#6537f7;}
+		.menu__item:nth-child(5) {--menu-item-color:#f7bd1f;}
+		.menu__item:nth-child(6) {--menu-item-color:#f7bd1f;}
+		.menu__item:nth-child(7) {--menu-item-color:#24d261;}
+		.menu__item:nth-child(8) {--menu-item-color:#6537f7;}
+		.menu__item-name {
+			font-weight: 700;
+			padding: 0.25em;
+			color:$color-menuname;
+		}
+		.menu__item-name:hover, .menu__item-name:focus {
+			color:$color-menuname;
+		}
+
+		.menu__item-name::before {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 50%;
+			background: var(--menu-item-color);
+			transform: scale3d(1,0,1);
+			transform-origin: 50% 100%;
+			transition: transform 0.3s;
+			transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+		}
+
+		.menu__item:hover .menu__item-name::before,
+		.menu__item:focus .menu__item-name::before {
+			transform: scale3d(1,1,1);
+			transform-origin: 50% 0%;
+		}
+
+		.menu__item-label {
+			display: flex;
+			flex-wrap: wrap;
+			width: 100%;
+			margin: 0.5em 0 0 1.5em;
+			white-space: pre;
+			color: $color-submenuname;
+		}
+
+		.menu__item-label span {
+			display: inline-block;
+		}
+
+		@media screen and (max-width: 50em) {
+			.menu__item-label {
+				font-size: 0.6em;
+				margin-left: 0.25em;
+			}
+		}
+	}
+// END Menu SALAL
+	
+//MENU TSULA -----------------------------------------------------------------------------------------------------------------------
+	
+	//Define your colors
+	$color-menuname: #5a5bd3;
+	$color-background: #5a5bd3;
+	$color-link: #222328;
+	$color-submenuname: #999caa;
+	
+	.menu--tsula {
+	font-family: $font-family-mono;
+		.menu__item {
+			padding-left: 0.25em;
+		}
+
+		.menu__item-name {
+			font-size: 1em;
+			text-transform: uppercase;
+			color: $color-menuname;
+			margin-right:.6rem;
+		}
+
+		.menu__item:hover .menu__item-name,
+		.menu__item:focus .menu__item-name {
+			color: $color-link;
+			background: $color-background;
+		}
+
+		.menu__item::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 100%;
+			width: 0.9em;
+			height: 1em;
+			opacity: 0;
+			background: rgba(90,91,211,0.3);
+			animation: none; /* For Chrome */
+		}
+
+		.menu__item-label {
+			margin: 0;
+			color: $color-submenuname;
+		}
+
+		.menu__item:hover::before,
+		.menu__item:focus::before {
+			animation: blinkblink 0.4s cubic-bezier(0.5,0,1,1) infinite alternate;
+		}
+ 	}
+
+	@keyframes blinkblink {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+// END Menu TSULA
+
+//MENU YONA -----------------------------------------------------------------------------------------------------------------------
+
+	.menu--yona {
+	//Define your colors
+	$color-menuname: #000;
+	$color-background: $color-menuname;
+	$color-submenuname: #fff;
+		
+	font-size: 1.15em;
+		
+		.menu__item {
+			font-size: 1.5em;
+			font-weight: 900;
+			margin: 1.25em 0;
+			padding-left: 0.25em;
+		}
+
+		.menu__item-name {
+			color: $color-menuname;
+			transition: transform 0.3s;
+		}
+
+		.menu__item:hover .menu__item-name,
+		.menu__item:focus .menu__item-name {
+			transform: translate3d(0.5em,0,0);
+		}
+
+		.menu__item::before {
+			content: '';
+			position: absolute;
+			top: 0.5em;
+			left: 0;
+			width: 0.75em;
+			height: 0.25em;
+			background: $color-background;
+			transform: scale3d(0,1,1);
+			transform-origin: 0% 50%;
+			transition: transform 0.3s;
+		}
+
+		.menu__item:hover::before,
+		.menu__item:focus::before {
+			transform: scale3d(1,1,1);
+		}
+
+		.menu__item-label {
+			display: block;
+			margin: 0;
+			word-spacing: 0.15em;
+			color: #fff;
+		}
+	
+	@media screen and (max-width: 50em) {
+		.menu__item-label {
+			font-size: 0.85em;
+			}
+		}
+	}
+// END Menu YONA	
+
+}
